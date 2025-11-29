@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>店舗運用マニュアル</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff; /* 背景白（印刷用） */
+            margin: 0;
+            padding: 40px;
+        }
+        .container {
+            max-w-800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #1e3a8a;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-align: center;
+        }
+        h2 {
+            background-color: #e0f2fe;
+            padding: 10px 15px;
+            border-left: 5px solid #3b82f6;
+            margin-top: 40px;
+            font-size: 20px;
+            color: #1e40af;
+            page-break-after: avoid; /* 見出しの後で改ページしない */
+        }
+        h3 {
+            margin-top: 25px;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        p, li {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .step-box {
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            page-break-inside: avoid; /* ボックス内で改ページしない */
+        }
+        .step-title {
+            font-weight: bold;
+            color: #0284c7;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        .important {
+            color: #dc2626;
+            font-weight: bold;
+            background-color: #fee2e2;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .highlight-box {
+            border: 2px solid #fca5a5;
+            background-color: #fff1f2;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        .column-guide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .col-item {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            border: 1px solid #e5e7eb;
+        }
+        .col-name {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+            color: #1f2937;
+            font-size: 16px;
+            border-bottom: 1px solid #d1d5db;
+            padding-bottom: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f5f9;
+            font-weight: bold;
+            width: 30%;
+        }
+        .footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* 印刷時の設定 */
+        @media print {
+            body { padding: 0; }
+            .container { width: 100%; max-width: none; }
+            h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .step-box, .col-item, .highlight-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div style="text-align: right; font-size: 12px; color: #666; margin-bottom: 10px;">最終更新日: 2025/11/28</div>
+        <h1>店舗運用マニュアル</h1>
+
+        <p>この度は「自動求人システム」をご導入いただきありがとうございます。<br>
+        このシステムは、応募受付から台帳記入、面接リマインドまでを自動化し、店舗様の採用業務を大幅に削減します。</p>
+
+        <h2>1. システムでできること</h2>
+        <ul>
+            <li><strong>ファーストアクション</strong>：友達追加されると自動であいさつメッセージを送信します。</li>
+            <li><strong>自動台帳作成</strong>：応募者の情報がGoogleスプレッドシートに勝手に溜まります。</li>
+            <li><strong>ドタキャン防止</strong>：面接当日の2時間前に、応募者へ自動で確認LINEを送ります。</li>
+        </ul>
+
+        <h2>2. 日々の運用フロー（これだけやればOK！）</h2>
+        
+        <div class="step-box">
+            <span class="step-title">STEP 1：応募を確認する</span>
+            応募があると、管理用の「Googleスプレッドシート」に自動で行が追加されます。<br>
+            また、LINEのトーク内に「面接希望」と応募者からのメッセージが届きますので確認をしてください。
+        </div>
+
+        <div class="step-box">
+            <span class="step-title">STEP 2：応募者と日程調整する</span>
+            第一希望、第二希望で店舗様の都合が合わない場合、直接トーク内で日程を調整してください。
+        </div>
+
+        <div class="step-box" style="border-color: #ef4444; background-color: #fff5f5;">
+            <span class="step-title" style="color: #dc2626;">STEP 3：確定日時を入力する（★最重要）</span>
+            面接日時が決まったら、必ずスプレッドシートの<br>
+            <strong>「I列（確定日）」</strong>と<strong>「J列（確定時間）」</strong>に入力してください。<br>
+            <br>
+            <span class="important">※ここに入力しないと、リマインドLINEが送信されません！</span>
+        </div>
+
+        <h2>3. スプレッドシートの入力ルール</h2>
+        <p>管理シートの各列（項目）の説明です。</p>
+
+        <div class="column-guide">
+            <div class="col-item">
+                <span class="col-name">A〜H列（応募者情報）</span>
+                自動で入力されます。触らなくてOKです。
+            </div>
+            
+            <!-- ここを強調 -->
+            <div class="col-item" style="background-color: #fff7ed; border: 2px solid #f97316;">
+                <span class="col-name" style="color: #c2410c;">I列（確定日） ★重要</span>
+                ここを<strong style="color: #dc2626; font-size: 1.2em; text-decoration: underline;">必ずダブルクリック</strong>して<br>
+                カレンダーを開いてください。<br>
+                <br>
+                <span class="important" style="font-size: 0.9em;">手入力NG！必ずカレンダーから選ぶこと。</span>
+            </div>
+
+            <div class="col-item" style="background-color: #fff7ed; border: 2px solid #f97316;">
+                <span class="col-name" style="color: #c2410c;">J列（確定時間）</span>
+                <strong>プルダウン（▼）</strong>から面接開始時間を選んでください。<br>
+                （例：14:00, 14:30...）
+            </div>
+            <div class="col-item">
+                <span class="col-name">K・L列（システム用）</span>
+                自動で「済」や「ID」が入ります。<br>
+                <span class="important">絶対に削除・変更しないでください。</span>
+            </div>
+        </div>
+
+        <h2>4. 自動リマインド機能について</h2>
+        <table>
+            <tr>
+                <th>送信タイミング</th>
+                <td>面接日時の <strong>約2時間前</strong> に自動送信</td>
+            </tr>
+            <tr>
+                <th>送信内容</th>
+                <td>「本日は予定通り面接にお越しいただけますか？一応確認のご連絡です。」という確認LINEメッセージ</td>
+            </tr>
+            <tr>
+                <th>日時変更の場合</th>
+                <td>I列・J列を新しい日時に書き換えてください。（再送はされません）</td>
+            </tr>
+        </table>
+
+        <h2>5. 困ったときは（Q&A）</h2>
+        <h3>Q. 間違って行を消してしまった！</h3>
+        <p>A. 落ち着いて、キーボードの <code>Ctrl</code> + <code>Z</code> （Macなら <code>Command</code> + <code>Z</code>）を押して元に戻してください。</p>
+
+        <h3>Q. リマインドLINEが届かなかったと言われた</h3>
+        <p>A. 以下の可能性があります。<br>
+        1. I列・J列の入力を忘れていた。<br>
+        2. 入力が直前（1時間前など）だったため、送信タイミングを過ぎていた。</p>
+
+        <div class="footer">
+            システムに関するお問い合わせ：春日寛仁　070-2406-2381
+        </div>
+    </div>
+
+</body>
+</html>
