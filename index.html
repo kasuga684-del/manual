@@ -11,6 +11,7 @@
     --text-color: #333;
     --bg-color: #f4f7f9;
     --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --accent-red: #e74c3c;
   }
   body {
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
@@ -105,6 +106,29 @@
     margin-bottom: 10px;
     color: #444;
   }
+  /* カレンダー強調エリア */
+  .calendar-alert {
+    background-color: #fff0f0;
+    border: 2px solid var(--accent-red);
+    color: #c0392b;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .calendar-alert strong {
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .highlight-red {
+    color: var(--accent-red);
+    font-weight: bold;
+    background: #fff;
+    padding: 0 5px;
+    border-radius: 3px;
+  }
+  
   .highlight-box {
     background-color: #fff3cd;
     border: 1px solid #ffeeba;
@@ -187,15 +211,24 @@
   <div class="step-box" style="border-left-color: var(--secondary-color);">
     <div class="step-title">STEP 2：確定日時をシートに入力【重要！】</div>
     <p>日時が決まったら、該当する女の子の行の右側にある<strong>「確定日」「確定時間」</strong>の2箇所を必ず入力してください。</p>
+    
+    <div class="calendar-alert">
+        <strong>📅 日付入力のルール（ここだけ注意！）</strong>
+        <p style="margin-bottom: 5px;">「確定日」のセルは、必ず <span class="highlight-red">ダブルクリック</span> してください。</p>
+        <p style="margin-bottom: 0;">自動で表示されるカレンダーから日付を選びます。<br>
+        <small>※キーボードで数字を手入力するとシステムが動かない原因になります。<strong>必ずカレンダーから選んでください。</strong></small></p>
+    </div>
+
     <p><strong>▼ 入力する場所</strong></p>
     <ul>
       <li><span class="tag-zaiseki">在籍（青）</span>の場合：<strong>P列</strong>（確定日）、<strong>Q列</strong>（確定時間）</li>
       <li><span class="tag-dekasegi">出稼ぎ（ピンク）</span>の場合：<strong>Q列</strong>（確定日）、<strong>R列</strong>（確定時間）</li>
     </ul>
+
     <div class="highlight-box">
-      <span class="highlight-box-icon">⚠️</span>
+      <span class="highlight-box-icon">💡</span>
       <div>
-        <strong>注意</strong><br>
+        <strong>ポイント</strong><br>
         ここの入力を忘れると、リマインドLINEが送信されません。日時が決まったらすぐに入力する癖をつけてください。
       </div>
     </div>
