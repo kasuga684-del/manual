@@ -45,6 +45,9 @@
     background-color: #f0f9ff;
     padding-top: 10px;
     padding-bottom: 10px;
+    /* 見出しの前での不自然な改ページを防ぐ */
+    break-after: avoid; 
+    page-break-after: avoid;
   }
   h3 {
     color: #555;
@@ -52,6 +55,8 @@
     margin-bottom: 10px;
     display: flex;
     align-items: center;
+    break-after: avoid;
+    page-break-after: avoid;
   }
   h3::before {
     content: '';
@@ -92,6 +97,12 @@
     font-size: 0.9em;
     margin-right: 5px;
   }
+  /* ▼▼▼ 修正ポイント：枠の途中でページが切れないようにする設定 ▼▼▼ */
+  .step-box, .calendar-alert, .highlight-box, .check-box, .warning-box {
+    break-inside: avoid;      /* 新しいブラウザ用 */
+    page-break-inside: avoid; /* 古いブラウザ/プリンタ用 */
+  }
+  
   .step-box {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -182,6 +193,19 @@
   @media (max-width: 600px) {
     .container {
       padding: 20px;
+    }
+  }
+  /* 印刷時専用の設定 */
+  @media print {
+    body {
+      background-color: #fff; /* 背景色を白に */
+      padding: 0;
+    }
+    .container {
+      box-shadow: none; /* 影を消す */
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
     }
   }
 </style>
