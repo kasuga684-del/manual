@@ -1,241 +1,230 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>店舗運用マニュアル</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
-        
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-            margin: 0;
-            padding: 40px;
-        }
-        .container {
-            max-w-800px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #1e3a8a;
-            border-bottom: 3px solid #3b82f6;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            font-size: 28px;
-            text-align: center;
-        }
-        h2 {
-            background-color: #e0f2fe;
-            padding: 10px 15px;
-            border-left: 5px solid #3b82f6;
-            margin-top: 40px;
-            font-size: 20px;
-            color: #1e40af;
-            page-break-after: avoid;
-        }
-        h3 {
-            margin-top: 25px;
-            font-size: 18px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-        }
-        p, li {
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .step-box {
-            background-color: #f8fafc;
-            border: 2px solid #e2e8f0;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            page-break-inside: avoid;
-        }
-        .step-title {
-            font-weight: bold;
-            color: #0284c7;
-            display: block;
-            margin-bottom: 8px;
-            font-size: 18px;
-        }
-        .important {
-            color: #dc2626;
-            font-weight: bold;
-            background-color: #fee2e2;
-            padding: 2px 6px;
-            border-radius: 4px;
-            display: inline-block;
-        }
-        .tab-guide {
-            background-color: #f0fdf4;
-            border: 2px solid #86efac;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            color: #15803d;
-            font-weight: bold;
-        }
-        .column-guide {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        .col-item {
-            background: #f3f4f6;
-            padding: 15px;
-            border-radius: 6px;
-            font-size: 14px;
-            border: 1px solid #e5e7eb;
-        }
-        .col-name {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 6px;
-            color: #1f2937;
-            font-size: 16px;
-            border-bottom: 1px solid #d1d5db;
-            padding-bottom: 4px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #cbd5e1;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f1f5f9;
-            font-weight: bold;
-            width: 30%;
-        }
-        .footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            text-align: center;
-            font-size: 14px;
-            color: #666;
-        }
-        @media print {
-            body { padding: 0; }
-            .container { width: 100%; max-width: none; }
-            h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .step-box, .col-item, .tab-guide { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>求人応募 自動管理シート 運用マニュアル</title>
+<style>
+  :root {
+    --primary-color: #0ea5e9; /* 在籍の青 */
+    --secondary-color: #ff69b4; /* 出稼ぎのピンク */
+    --text-color: #333;
+    --bg-color: #f4f7f9;
+    --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+  }
+  h1 {
+    color: #444;
+    text-align: center;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+  }
+  h2 {
+    color: var(--primary-color);
+    border-left: 5px solid var(--primary-color);
+    padding-left: 15px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background-color: #f0f9ff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  h3 {
+    color: #555;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  h3::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: var(--primary-color);
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  p {
+    margin-bottom: 15px;
+  }
+  ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: 8px;
+  }
+  .tag-zaiseki {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-right: 5px;
+  }
+  .tag-dekasegi {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-right: 5px;
+  }
+  .step-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #aaa;
+  }
+  .step-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #444;
+  }
+  .highlight-box {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .highlight-box-icon {
+    font-size: 1.5em;
+    margin-right: 15px;
+  }
+  .check-box {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  .check-title {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .warning-box {
+    border: 2px solid #d9534f;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fdf7f7;
+    margin-top: 30px;
+  }
+  .warning-title {
+    color: #d9534f;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #888;
+  }
+  /* レスポンシブ対応 */
+  @media (max-width: 600px) {
+    .container {
+      padding: 20px;
+    }
+  }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <div style="text-align: right; font-size: 12px; color: #666; margin-bottom: 10px;">最終更新日: 2025/11/30</div>
-        <h1>店舗運用マニュアル</h1>
+<div class="container">
+  <h1>求人応募 自動管理シート<br>運用マニュアル</h1>
 
-        <p>この度は「自動求人システム」をご導入いただきありがとうございます。<br>
-        このシステムは、応募受付から台帳記入、面接リマインドまでを自動化し、店舗様の採用業務を大幅に削減します。</p>
+  <p>このシステムは、LINEからの応募を自動でスプレッドシートに保存し、面接日時の確定を入力するだけで、<strong>当日の「リマインドLINE」を自動送信</strong>するシステムです。</p>
 
-        <h2>1. システムでできること</h2>
-        <ul>
-            <li><strong>ファーストアクション</strong>：友達追加されると自動であいさつメッセージを送信し、スムーズなやり取りを開始します。</li>
-            <li><strong>自動台帳作成</strong>：応募者の情報がGoogleスプレッドシートに勝手に溜まり、管理の手間を省きます。</li>
-            <li><strong>ドタキャン防止</strong>：面接当日の2時間前に、応募者へ自動で確認LINEを送り、確実な面接実施をサポートします。</li>
-        </ul>
+  <h2>1. シートの見方</h2>
+  <p>スプレッドシートの下部にあるタブで、応募の種類を切り替えます。</p>
+  <ul>
+    <li><span class="tag-zaiseki">在籍応募</span>（青色のシート）：お店に通勤する女の子の応募です。</li>
+    <li><span class="tag-dekasegi">出稼ぎ応募</span>（ピンク色のシート）：遠方から泊まり込みで働く女の子の応募です。</li>
+  </ul>
 
-        <h2>2. 日々の運用フロー（これだけやればOK！）</h2>
-        
-        <div class="step-box">
-            <span class="step-title">STEP 1：応募を確認する</span>
-            応募があると、管理用の「Googleスプレッドシート」に自動で行が追加されます。<br>
-            また、LINEのトーク内に「面接希望」と応募者からのメッセージが届きますので確認をしてください。
-        </div>
+  <h2>2. 応募が来たらやること（日々の業務）</h2>
+  <p>応募が入ると、LINEに通知が届き、シートの一番下に新しい行が追加されます。</p>
 
-        <div class="tab-guide">
-            💡 ポイント：スプレッドシートの「タブ」を確認！<br>
-            シートの下部に「在籍応募」と「出稼ぎ応募」のタブがあります。<br>
-            応募の種類によって自動で振り分けられますので、切り替えてご確認ください。
-        </div>
+  <div class="step-box" style="border-left-color: var(--primary-color);">
+    <div class="step-title">STEP 1：LINEで日程調整</div>
+    <p>応募者とLINEでやり取りをして、<strong>面接（または到着）の日時</strong>を決定してください。</p>
+  </div>
 
-        <div class="step-box">
-            <span class="step-title">STEP 2：応募者と日程調整する</span>
-            第一希望、第二希望で店舗様の都合が合わない場合、直接LINEトーク内で日程を調整してください。
-        </div>
-
-        <div class="step-box" style="border-color: #ef4444; background-color: #fff5f5;">
-            <span class="step-title" style="color: #dc2626;">STEP 3：確定日時を入力する（★最重要）</span>
-            面接日時が決まったら、必ずスプレッドシートの<br>
-            <strong>「確定日」</strong>と<strong>「確定時間」</strong>の列に入力してください。<br>
-            <br>
-            <span class="important">※ここに入力しないと、リマインドLINEが送信されません！</span>
-        </div>
-
-        <h2>3. スプレッドシートの入力ルール</h2>
-        <p>管理シートの右側にある、管理用項目の説明です。</p>
-
-        <div class="column-guide">
-            <div class="col-item">
-                <span class="col-name">応募者情報（左側の列）</span>
-                自動で入力されます。触らなくてOKです。
-            </div>
-            
-            <!-- ここを強調 -->
-            <div class="col-item" style="background-color: #fff7ed; border: 2px solid #f97316;">
-                <span class="col-name" style="color: #c2410c;">確定日 ★重要</span>
-                ここを<strong style="color: #dc2626; font-size: 1.2em; text-decoration: underline;">必ずダブルクリック</strong>して<br>
-                カレンダーを開いてください。<br>
-                <br>
-                <span class="important" style="font-size: 0.9em;">手入力NG！必ずカレンダーから選ぶこと。</span>
-            </div>
-
-            <div class="col-item" style="background-color: #fff7ed; border: 2px solid #f97316;">
-                <span class="col-name" style="color: #c2410c;">確定時間</span>
-                <strong>プルダウン（▼）</strong>から面接開始時間を選んでください。<br>
-                （例：14:00, 14:30...）
-            </div>
-            <div class="col-item">
-                <span class="col-name">リマインド・LINE ID</span>
-                システムが使用します。<br>
-                <span class="important">絶対に削除・変更しないでください。</span>
-            </div>
-        </div>
-
-        <h2>4. 自動リマインド機能について</h2>
-        <table>
-            <tr>
-                <th>送信タイミング</th>
-                <td>面接日時の <strong>約2時間前</strong> に自動送信</td>
-            </tr>
-            <tr>
-                <th>送信内容</th>
-                <td>「本日は予定通り面接にお越しいただけますか？一応確認のご連絡です。」という確認LINEメッセージ</td>
-            </tr>
-            <tr>
-                <th>日時変更の場合</th>
-                <td>「確定日」「確定時間」を新しい日時に書き換えてください。（再送はされません）</td>
-            </tr>
-        </table>
-
-        <h2>5. 困ったときは（Q&A）</h2>
-        <h3>Q. 間違って行を消してしまった！</h3>
-        <p>A. 落ち着いて、キーボードの <code>Ctrl</code> + <code>Z</code> （Macなら <code>Command</code> + <code>Z</code>）を押して元に戻してください。</p>
-
-        <h3>Q. リマインドLINEが届かなかったと言われた</h3>
-        <p>A. 以下の可能性があります。<br>
-        1. 確定日時の入力を忘れていた。<br>
-        2. 入力が直前（1時間前など）だったため、送信タイミングを過ぎていた。</p>
-
-        <div class="footer">
-            システムに関するお問い合わせ：春日寛仁　070-2406-2381
-        </div>
+  <div class="step-box" style="border-left-color: var(--secondary-color);">
+    <div class="step-title">STEP 2：確定日時をシートに入力【重要！】</div>
+    <p>日時が決まったら、該当する女の子の行の右側にある<strong>「確定日」「確定時間」</strong>の2箇所を必ず入力してください。</p>
+    <p><strong>▼ 入力する場所</strong></p>
+    <ul>
+      <li><span class="tag-zaiseki">在籍（青）</span>の場合：<strong>P列</strong>（確定日）、<strong>Q列</strong>（確定時間）</li>
+      <li><span class="tag-dekasegi">出稼ぎ（ピンク）</span>の場合：<strong>Q列</strong>（確定日）、<strong>R列</strong>（確定時間）</li>
+    </ul>
+    <div class="highlight-box">
+      <span class="highlight-box-icon">⚠️</span>
+      <div>
+        <strong>注意</strong><br>
+        ここの入力を忘れると、リマインドLINEが送信されません。日時が決まったらすぐに入力する癖をつけてください。
+      </div>
     </div>
+  </div>
+
+  <h2>3. 自動リマインドについて</h2>
+  <p>STEP 2で日時を入力しておけば、あとはシステムが全自動で行います。</p>
+  <ul>
+    <li><strong>送信タイミング</strong>：面接時間の 約2時間前</li>
+    <li><strong>送信内容</strong>：「本日は予定通りお越しいただけますか？」という確認メッセージ</li>
+  </ul>
+
+  <div class="check-box">
+    <div class="check-title">✅ 送信されたか確認する方法</div>
+    <p>リマインドが送信されると、シートの「リマインド」列（在籍はR列、出稼ぎはS列）に、自動で <strong>「済」</strong> という文字が入ります。<br>
+    ※ここには手動で文字を入れないでください。</p>
+  </div>
+
+  <div class="warning-box">
+    <div class="warning-title">⚠️ 運用上の注意（触ってはいけない場所）</div>
+    <p>システムを正常に動かすため、以下の操作は行わないでください。</p>
+    <ol>
+      <li><strong>「LINE ID」の列（一番右）を削除・変更しない</strong><br>ここにあるIDを使ってメッセージを送っています。消してしまうと連絡が取れなくなります。</li>
+      <li><strong>1行目の項目名（ヘッダー）を変更しない</strong><br>プログラムが読み取れなくなってしまいます。</li>
+      <li><strong>行を勝手に削除しない</strong><br>不要なデータでも、削除せず「塗りつぶし」などで対応するか、相談してください。</li>
+    </ol>
+  </div>
+
+</div>
 
 </body>
 </html>
